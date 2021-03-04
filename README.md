@@ -38,7 +38,7 @@ log.debug("hello world.");
 
 ![](./imgs/debug.png)
 
-### options
+## options
 
 创建 beautyLog 实例时可以进行简单的配置，支持的配置项有：
 
@@ -64,7 +64,7 @@ log.setOption("showTime", true);
 log.debug("hello world.");
 ```
 
-### API
+## API
 
 - **beautyLog.debug()**
 - **beautyLog.error()**
@@ -76,9 +76,9 @@ log.debug("hello world.");
 - **beautyLog.labelkey()**
 - **beautyLog.setOption()**
 
----
 
-#### beautyLog.debug(msgs)
+
+### beautyLog.debug(msgs)
 
 输出调试信息，msgs 可以是普通类型，也可以是引用类型，如果是引用类型，将调用其内部的 toString() 方法转字符串后输出。
 
@@ -100,7 +100,7 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.error(msgs)
+### beautyLog.error(msgs)
 
 输出错误信息，内部通过调用 console.trace 来实现，输出效果如下：
 
@@ -108,7 +108,7 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.warn(msgs)
+### beautyLog.warn(msgs)
 
 输出警告信息，与 beautyLog.error 类似。
 
@@ -116,7 +116,7 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.info(msgs)
+### beautyLog.info(msgs)
 
 输出 infomation ，仅语义不同，功能上与 debug 类似。
 
@@ -124,13 +124,13 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.clear()
+### beautyLog.clear()
 
 清除控制台的全部输出。
 
 ---
 
-#### beautyLog.group(msgs)
+### beautyLog.group(msgs)
 
 输出一组日志，需配合 `beautyLog.groupEnd()` 一起使用。
 
@@ -138,13 +138,13 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.groupEnd(msgs)
+### beautyLog.groupEnd(msgs)
 
 标记一个输出组的结束，需与 `beautyLog.group()` 一起使用。
 
 ---
 
-#### beautyLog.labelkey(key, value)
+### beautyLog.labelkey(key, value)
 
 输出一个键值对标签。
 
@@ -152,11 +152,9 @@ log.debug(alert);
 
 ---
 
-#### beautyLog.setOption(optionName, value)
+### beautyLog.setOption(optionName, value)
 
 设置 option 的某个属性值，optionName 见上表。
-
-
 
 ## License
 

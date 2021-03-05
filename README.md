@@ -17,7 +17,7 @@ const log = new beautyLog({
     showTime: true,			// 是否显示日志时间前缀
     showType: true,			// 是否显示目标的数据类型
     timeFormat: "hh:mm:ss",	// 如果 showTime 为 true，那么这里定义时间的格式
-    jsonFormat: 2			// 格式化 json 对象的缩进数，默认为 0 ，不缩进
+    jsonFormat: 2           // 格式化 json 对象的缩进数，默认为 0 ，不缩进
 });
 ```
 
@@ -27,7 +27,7 @@ const log = new beautyLog({
 log.debug("hello world.");
 ```
 
-![](https://smartline.cc/wp-content/uploads/2021/03/debug.png)
+![](./imgs/debug.png)
 
 ## options
 
@@ -42,11 +42,11 @@ log.debug("hello world.");
 
 当 showType 为 false 将不显示数据类型：
 
-![](https://smartline.cc/wp-content/uploads/2021/03/debug_showtype_false.png)
+![](./imgs/debug_showtype_false.png)
 
 既不显示时间，也不显示数据类型：
 
-![](https://smartline.cc/wp-content/uploads/2021/03/debug_show_option_false.png)
+![](./imgs/debug_show_option_false.png)
 
 运行时如需变更配置，可以通过 setOption(optionName, value) 来修改：
 
@@ -88,7 +88,7 @@ log.debug(alert);
 
 输出效果：
 
-![](https://smartline.cc/wp-content/uploads/2020/10/beauty_log_all_type.png)
+![](./imgs/debug_all_types.png)
 
 ---
 
@@ -96,7 +96,7 @@ log.debug(alert);
 
 输出错误信息，内部通过调用 console.trace 来实现，输出效果如下：
 
-![](https://smartline.cc/wp-content/uploads/2021/03/error.png)
+![](./imgs/error.png)
 
 ---
 
@@ -104,7 +104,7 @@ log.debug(alert);
 
 输出警告信息，与 beautyLog.error 类似。
 
-![](https://smartline.cc/wp-content/uploads/2021/03/warn.png)
+![](./imgs/warn.png)
 
 ---
 
@@ -112,7 +112,7 @@ log.debug(alert);
 
 输出 infomation ，仅语义不同，功能上与 debug 类似。
 
-![](https://smartline.cc/wp-content/uploads/2021/03/group.png)
+![](./imgs/info.png)
 
 ---
 
@@ -126,7 +126,7 @@ log.debug(alert);
 
 输出一组日志，需配合 `beautyLog.groupEnd()` 一起使用。
 
-![](https://smartline.cc/wp-content/uploads/2021/03/group.png)
+![](./imgs/group.png)
 
 ---
 
@@ -140,14 +140,13 @@ log.debug(alert);
 
 输出一个键值对标签。
 
-![](https://smartline.cc/wp-content/uploads/2021/03/labelkey.png)
+![](./imgs/labelkey.png)
 
 ---
 
 ### beautyLog.setOption(optionName, value)
 
 设置 option 的某个属性值，optionName 见上表。
-
 
 ## License
 

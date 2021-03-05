@@ -61,11 +61,10 @@ function BeautyLog (options = {}) {
     this.config = {
         showTime: true,
         showType: true,
-        timeFormat: 'yyyy-MM-dd hh:mm:ss'
+        timeFormat: 'yyyy-MM-dd hh:mm:ss',
+        theme: Theme
     }
     this.config = Object.assign(this.config, options);
-    // theme color
-    this.theme = this.config.theme || Theme;
 
     this.log = console.log;
 

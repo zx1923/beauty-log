@@ -1,7 +1,25 @@
 const log = new beautyLog({
-    timeFormat: "hh:mm:ss"
+    timeFormat: "hh:mm:ss",
+    jsonFormat: 2
 });
+let info = {
+    "name": "json",
+    "page": 88,
+    "isNonProfit": true,
+    "address": {
+        "street": "科技园路.",
+        "city": "江苏苏州",
+        "country": "中国"
+    },
+    "links": [
+        {
+            "name": "Google",
+            "url": "http://www.google.com"
+        }
+    ]
+};
 log.debug("hello wolrd.")
+log.debug(info);
 log.debug(1234567890);
 log.success("this is a success message");
 log.debug([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);

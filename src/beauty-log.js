@@ -41,7 +41,12 @@ function _println (colorType, ...objmsg) {
             case 'string':
                 return s + val;
             case 'object':
-                return s + JSON.stringify(val);
+                if (this.config.jsonFormat >= 0) {
+                    return s + JSON.stringify(val, null, this.config.jsonFormat) + '\n';
+                }
+                else {
+                    return s + JSON.stringify(val);
+                }
             case 'array':
                 return s + '[' + val.join(', ') + ']';
 
@@ -61,11 +66,13 @@ function BeautyLog (options = {}) {
     this.config = {
         showTime: true,
         showType: true,
+        jsonFormat: 0,
         timeFormat: 'yyyy-MM-dd hh:mm:ss',
         theme: Theme
     }
     this.config = Object.assign(this.config, options);
 
+    this.theme = this.config.theme;
     this.log = console.log;
 
     // show version infomation

@@ -1,16 +1,6 @@
 # beauty-log
 
-beauty-log 是一个在浏览器上使用的 log 增强工具。
-
-beauty-log 的功能：
-
-- 增强 console 对象；
-- 支持配色和文字高亮；
-- 支持输出日志时间标记；
-- 支持输出目标的数据类型；
-- 配色可定制化；
-- 可代替 console.log 、console.error 和 console.warn；
-- 支持日志分组。
+beauty-log 是一个在浏览器上使用的 console 增强工具。
 
 ## 如何使用
 
@@ -26,7 +16,8 @@ beauty-log 的功能：
 const log = new beautyLog({
     showTime: true,			// 是否显示日志时间前缀
     showType: true,			// 是否显示目标的数据类型
-    timeFormat: "hh:mm:ss"	// 如果 showTime 为 true，那么这里定义时间的格式
+    timeFormat: "hh:mm:ss",	// 如果 showTime 为 true，那么这里定义时间的格式
+    jsonFormat: 2			// 格式化 json 对象的缩进数，默认为 0 ，不缩进
 });
 ```
 
@@ -36,7 +27,7 @@ const log = new beautyLog({
 log.debug("hello world.");
 ```
 
-![](./imgs/debug.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/debug.png)
 
 ## options
 
@@ -47,14 +38,15 @@ log.debug("hello world.");
 | showTime   | 是否显示时间前缀                         | true                |
 | showType   | 是否显示数据类型                         | true                |
 | timeFormat | 时间的格式，仅在 showTime 为 true 时有效 | yyyy-MM-dd hh:mm:ss |
+| jsonFormat | 格式化 json 对象的缩进                   | 0                     |
 
 当 showType 为 false 将不显示数据类型：
 
-![](./imgs/debug_showtype_false.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/debug_showtype_false.png)
 
 既不显示时间，也不显示数据类型：
 
-![](./imgs/debug_show_option_false.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/debug_show_option_false.png)
 
 运行时如需变更配置，可以通过 setOption(optionName, value) 来修改：
 
@@ -96,7 +88,7 @@ log.debug(alert);
 
 输出效果：
 
-![](./imgs/debug_all_types.png)
+![](https://smartline.cc/wp-content/uploads/2020/10/beauty_log_all_type.png)
 
 ---
 
@@ -104,7 +96,7 @@ log.debug(alert);
 
 输出错误信息，内部通过调用 console.trace 来实现，输出效果如下：
 
-![](./imgs/error.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/error.png)
 
 ---
 
@@ -112,7 +104,7 @@ log.debug(alert);
 
 输出警告信息，与 beautyLog.error 类似。
 
-![](./imgs/warn.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/warn.png)
 
 ---
 
@@ -120,7 +112,7 @@ log.debug(alert);
 
 输出 infomation ，仅语义不同，功能上与 debug 类似。
 
-![](./imgs/info.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/group.png)
 
 ---
 
@@ -134,7 +126,7 @@ log.debug(alert);
 
 输出一组日志，需配合 `beautyLog.groupEnd()` 一起使用。
 
-![](./imgs/group.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/group.png)
 
 ---
 
@@ -148,13 +140,14 @@ log.debug(alert);
 
 输出一个键值对标签。
 
-![](./imgs/labelkey.png)
+![](https://smartline.cc/wp-content/uploads/2021/03/labelkey.png)
 
 ---
 
 ### beautyLog.setOption(optionName, value)
 
 设置 option 的某个属性值，optionName 见上表。
+
 
 ## License
 

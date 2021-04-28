@@ -1,7 +1,11 @@
-const log = new beautyLog({
+
+import BeautyLog from '../src/beautyLog';
+
+const log = new BeautyLog({
     timeFormat: "hh:mm:ss",
     jsonFormat: 2
 });
+
 let info = {
     "name": "json",
     "page": 88,
@@ -18,6 +22,7 @@ let info = {
         }
     ]
 };
+log.debug(document.getElementsByClassName('info'))
 log.debug("hello wolrd.")
 log.debug(info);
 log.debug(1234567890);

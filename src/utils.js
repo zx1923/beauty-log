@@ -30,20 +30,18 @@ const Utils = {
     },
 
     getType: function (data) {
-        let res = Object.prototype.toString.call(data).toLowerCase();
-        let type = Array.prototype.slice.call(res).slice(8, -1).join('');
-        return type;
+        return Object.prototype.toString.call(data).replace(/\[object\s|\]/g, '');
     },
 
     isPrimitiveType: function(data) {
         let type = this.getType(data);
-        return ['string', 'number', 'boolean'].indexOf(type) > -1 ? true : false;
+        return ['String', 'Number', 'Boolean'].indexOf(type) >= 0;
     },
 
     isReferenceType: function(data) {
         let type = this.getType(data);
-        return ['function', 'object', 'array'].indexOf(type) > -1 ? true : false;
+        return ['Function', 'Object', 'Array'].indexOf(type) >= 0;
     }
 }
 
-module.exports = Utils;
+export default Utils;

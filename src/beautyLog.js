@@ -1,17 +1,25 @@
 
-const Utils = require("./utils");
-const Theme = require("./theme/theme");
+import Utils from './utils';
+import { defaultTheme } from './theme';
 
+function _themeTranslate (styleObj) {
+    let result = '';
+    for (let key in styleObj) {
+        let cssName = key.replace(/([A-Z])/g, '-$1'.toLocaleLowerCase());
+        result += `${cssName}:${styleObj[key]};`;
+    }
+    return result;
+}
 
 function _prevwork (colorType, ...objmsg) {
     let data = [], color = [];
     if (this.config.showTime) {
         data.push("%c" + Utils.timeNow(this.config.timeFormat));
         if (this.theme.datetime[colorType]) {
-            color.push(this.theme.datetime[colorType]);
+            color.push(_themeTranslate(this.theme.datetime[colorType]));
         }
         else {
-            color.push(this.theme.datetime.default);
+            color.push(_themeTranslate(this.theme.datetime.default));
         }
     }
     return {data, color};
@@ -25,11 +33,11 @@ function _println (colorType, ...objmsg) {
         let msgstr = '';
         if (this.config.showType) {
             msgstr = `%c[${datatype}]`;
-            color.push(this.theme.datatype[colorType]);
-            color.push(this.theme.msg[colorType])
+            color.push(_themeTranslate(this.theme.datatype[colorType]));
+            color.push(_themeTranslate(this.theme.msg[colorType]))
         }
         else {
-            color.push(this.theme.msg[colorType]);
+            color.push(_themeTranslate(this.theme.msg[colorType]));
         }
         let s = msgstr + "%c";
         switch (datatype) {
@@ -68,7 +76,7 @@ function BeautyLog (options = {}) {
         showType: true,
         jsonFormat: 0,
         timeFormat: 'yyyy-MM-dd hh:mm:ss',
-        theme: Theme
+        theme: defaultTheme
     }
     this.config = Object.assign(this.config, options);
 
@@ -86,7 +94,7 @@ BeautyLog.prototype.setOption = function (key, value) {
 
 BeautyLog.prototype.labelkey = function (key, value) {
     let data = `%c${key}%c${value}`;
-    let color = [this.theme.key, this.theme.value];
+    let color = [_themeTranslate(this.theme.map.key), _themeTranslate(this.theme.map.value)];
     console.log(data, ...color);
 }
 
@@ -123,4 +131,4 @@ BeautyLog.prototype.group = function (...lables) {
 BeautyLog.prototype.groupEnd = console.groupEnd;
 BeautyLog.prototype.clear = console.clear;
 
-module.exports = BeautyLog;
+export default BeautyLog;

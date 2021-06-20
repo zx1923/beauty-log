@@ -2,25 +2,25 @@
 import BeautyLog from '../src/beautyLog';
 
 const log = new BeautyLog({
-    timeFormat: "hh:mm:ss",
-    jsonFormat: 2
+  timeFormat: "hh:mm:ss",
+  jsonFormat: 2
 });
 
 let info = {
-    "name": "json",
-    "page": 88,
-    "isNonProfit": true,
-    "address": {
-        "street": "科技园路.",
-        "city": "江苏苏州",
-        "country": "中国"
-    },
-    "links": [
-        {
-            "name": "Google",
-            "url": "http://www.google.com"
-        }
-    ]
+  "name": "json",
+  "page": 88,
+  "isNonProfit": true,
+  "address": {
+    "street": "科技园路.",
+    "city": "江苏苏州",
+    "country": "中国"
+  },
+  "links": [
+    {
+      "name": "Google",
+      "url": "http://www.google.com"
+    }
+  ]
 };
 log.debug(document.getElementsByClassName('info'))
 log.debug("hello wolrd.")
